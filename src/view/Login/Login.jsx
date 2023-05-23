@@ -64,7 +64,7 @@ const Login = ({ navigation }) => {
         onChangeText={(text) => setPassword(text)}
         placeholder="Senha"
       />
-      <TouchableOpacity onPress={() => navigation.navigate("Cadastro")}>
+      <TouchableOpacity onPress={() => {navigation.navigate("Cadastro"); cleanInputs()}}>
         <Text style={stylesLogin.textCadastro}>Não tem conta? Cadastre-se</Text>
       </TouchableOpacity>
       

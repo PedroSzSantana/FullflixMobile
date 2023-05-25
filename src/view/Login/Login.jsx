@@ -3,7 +3,7 @@ import { SafeAreaView, Text, TextInput } from "react-native";
 import { stylesLogin } from "./Style";
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { firebaseConfig } from "../../assets/api/auth";
+import { firebaseConfig } from "../../assets/auth/auth";
 import { initializeApp } from "firebase/app";
 import { CaseErrors } from "../../assets/errors/LoginErrors";
 import { CommonActions } from "@react-navigation/native";
@@ -64,10 +64,15 @@ const Login = ({ navigation }) => {
         onChangeText={(text) => setPassword(text)}
         placeholder="Senha"
       />
-      <TouchableOpacity onPress={() => {navigation.navigate("Cadastro"); cleanInputs()}}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Cadastro");
+          cleanInputs();
+        }}
+      >
         <Text style={stylesLogin.textCadastro}>Não tem conta? Cadastre-se</Text>
       </TouchableOpacity>
-      
+
       <TouchableOpacity
         style={stylesLogin.button}
         onPress={() => handleLogin()}

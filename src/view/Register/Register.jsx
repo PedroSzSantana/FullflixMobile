@@ -2,7 +2,7 @@ import { Alert, TouchableOpacity } from "react-native";
 import { SafeAreaView, Text, TextInput } from "react-native";
 import { stylesRegister } from "./Style";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { firebaseConfig } from "../../assets/api/auth";
+import { firebaseConfig } from "../../assets/auth/auth";
 import { useState } from "react";
 import { initializeApp } from "firebase/app";
 import { CaseErrors } from "../../assets/errors/LoginErrors";
@@ -14,6 +14,7 @@ const Register = ({ navigation }) => {
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+  
   const cleanInputs = () => {
     setEmail("");
     setPassword("");
@@ -27,14 +28,14 @@ const Register = ({ navigation }) => {
           email,
           password
         );
-        Alert.alert("Usuario feito com sucesso");
+        Alert.alert("Conta criada com sucesso");
         const user = userCredencial.user;
         console.log(user);
         cleanInputs();
         navigation.navigate("Login");
       } catch (error) {
-        const erro = CaseErrors(error.message);
-        Alert.alert(erro);
+          const erro = CaseErrors(error.message);
+          Alert.alert(erro);
       }
     } else {
       return Alert.alert("As senhas não conferem");

@@ -15,7 +15,7 @@ export const _LoadFilms = async (setFilms) => {
     console.log(error);
   }
 };
-export const GetDetails = async (id, setState) => {
+export const GetDetails = async (id) => {
   try {
     const response = await api.get(`${id}?api_key=${key}&language=pt-BR`);
     return response.data;

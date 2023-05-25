@@ -29,14 +29,18 @@ const Login = ({ navigation }) => {
       );
       Alert.alert("Login realizado com sucesso");
       const user = userCredencial.user;
-      console.log(user);
+      console.log("Dados do Usuario -------", user);
       cleanInputs();
+
+      /* Para zerar os stack de páginas e o usuário não conseguir voltar para 
+      página de login utilizando o botão de voltar do celular */
       navigation.dispatch(
         CommonActions.reset({
           index: 0,
           routes: [{ name: "Filmes" }],
         })
       );
+
       navigation.navigate("Filmes");
     } catch (error) {
       const erro = CaseErrors(error.message);

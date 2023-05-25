@@ -6,14 +6,14 @@ import IconCategories from "../../assets/images/Icons/IconCategories.png";
 export const NavBar = ({ navigation }) => {
   return (
     <View style={stylesNavBar.container}>
-      <View style={stylesNavBar.ViewIcons}>
+      <TouchableOpacity style={stylesNavBar.ViewIcons}>
         <Image source={IconHome} />
         <Text style={stylesNavBar.ViewText}>Home</Text>
-      </View>
-      <View style={stylesNavBar.ViewIcons}>
+      </TouchableOpacity>
+      <TouchableOpacity style={stylesNavBar.ViewIcons}>
         <Image source={IconCategories} />
         <Text style={stylesNavBar.ViewText}>Categorias</Text>
-      </View>
+      </TouchableOpacity>
       <TouchableOpacity
         onPress={() => navigation.navigate("Conta")}
         style={stylesNavBar.ViewIcons}
